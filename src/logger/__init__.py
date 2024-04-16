@@ -1,4 +1,4 @@
-__all__ = ["logger", "logger_specials", "logger_last_error"]
+__all__ = ["logger", "logger_specials"]
 
 import logging as _logging
 import os as _os
@@ -23,7 +23,7 @@ class __Logger:
 
     def __start_logger(self) -> None:
         """
-        The function `__start_logger` sets up a file logger if the LOGGER_STATUS flag is enabled.
+        The function `__start_logger` sets up a file logger.
         """
         # Ensure the directory exists
         logger_directory: str = _os.path.dirname(self.__log_file)
@@ -117,7 +117,7 @@ class __LoggerSpecials:
             "crit": lambda arg: logger.critical(arg),
         }
 
-    def __handle_logger_message(self, key: str, message: str) -> str | None:
+    def __handle_logger_message(self, key: str, message: str) -> None:
         """
         This function handles logging of error messages at different levels based on a specified key.
 
@@ -126,9 +126,7 @@ class __LoggerSpecials:
         @param message The `message` parameter in the `__handle_logger_message` function represents the
         error message that needs to be logged at a specific logging level.
 
-        @return either a string or None, depending on the condition `if not _flags.LOGGER_SPECIALS`. If the
-        condition is met, it will return None. Otherwise, it will return the result of
-        `self.logger_level.get(key.lower(), logger.debug)(message)`.
+        @return It will return the result of `self.logger_level.get(key.lower(), logger.debug)(message)`.
         """
         return self.__logger_level.get(key.lower(), logger.debug)(message)
 
@@ -315,7 +313,3 @@ logger_specials = __LoggerSpecials()
 This instance is used for logging special messages at specified levels, which is used to
 handle special or specific logging messages.
 """
-
-
-def logger_last_error() -> str:
-    return f"{__Logger.__name__}.last_error"

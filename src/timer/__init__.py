@@ -1,11 +1,8 @@
-__all__ = ["func_timer"]
+__all__ = ["timer"]
 
 import time
 import traceback
-from typing import (
-    Any,
-    Callable,
-)
+from typing import Any, Callable
 
 from src.logger import *
 
@@ -31,18 +28,18 @@ def __handle_end_timer(start: float, func: Callable[..., Any]) -> None:
     logger.debug(f"Operation: {func}, took: { abs(start - end) } ms.")
 
 
-def func_timer(func: Callable[..., Any], *args: Any, **kwargs: Any) -> Any:
+def timer(func: Callable[..., Any], *args: Any, **kwargs: Any) -> Any:
     """
-    The `func_timer` function executes a given callable function, measures its execution time, logs the
+    The `timer` function executes a given callable function, measures its execution time, logs the
     duration, and handles any unhandled exceptions.
 
-    @param func The `func` parameter in the `func_timer` function is a callable function that you want
+    @param func The `func` parameter in the `timer` function is a callable function that you want
     to execute. It can be any function that you define in your code or a built-in function. When calling
-    `func_timer`, you pass this function as the first argument.
+    `timer`, you pass this function as the first argument.
     @param *args Positional arguments for the function.
     @param **kwargs Keyword arguments for the function.
 
-    @return The `func_timer` function returns the return value of the callable function `func` that is
+    @return The `timer` function returns the return value of the callable function `func` that is
     being executed.
     """
     start: float = __s()
