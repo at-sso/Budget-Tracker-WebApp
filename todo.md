@@ -2,8 +2,8 @@
 
 - [Index](#index)
   - [Notas para el lector](#notas-para-el-lector)
-  - [Esenciales / Prioridades:](#esenciales--prioridades)
-  - [Futuras implementaciones:](#futuras-implementaciones)
+  - [Implementaciones esenciales y prioridades](#implementaciones-esenciales-y-prioridades)
+  - [Futuras implementaciones](#futuras-implementaciones)
 
 ### Notas para el lector
 
@@ -11,7 +11,7 @@ Este documento describe las funcionalidades esenciales y futuras implementacione
 
 Se recomienda a los lectores revisar periódicamente este documento para estar al día con las últimas modificaciones y actualizaciones.
 
-### Esenciales / Prioridades:
+### Implementaciones esenciales y prioridades
 
 **1. Implementar MongoDB API:**
 
@@ -32,7 +32,7 @@ Se recomienda a los lectores revisar periódicamente este documento para estar a
 
 **2. Funcionalidades sin sistema de usuarios:**
 
-- **Nota:** Las funcionalidades descritas en la sección ["Esenciales / Prioridades"](#esenciales--prioridades) no requieren un sistema de usuarios en esta etapa. La implementación del sistema de usuarios se abordará en una fase posterior.
+- **Nota:** Las funcionalidades descritas en la sección [Implementaciones esenciales y prioridades](#implementaciones-esenciales-y-prioridades) no requieren un sistema de usuarios en esta etapa. La implementación del sistema de usuarios se abordará en una fase posterior.
 
 **3. Consideraciones adicionales:**
 
@@ -40,7 +40,7 @@ Se recomienda a los lectores revisar periódicamente este documento para estar a
 - **Pruebas:** Implementar pruebas unitarias y de integración para garantizar el correcto funcionamiento de la API.
 - **Despliegue:** Elegir una estrategia adecuada para desplegar la API en un entorno de producción, como un servidor web o una plataforma en la nube.
 
-### Futuras implementaciones:
+### Futuras implementaciones
 
 **1. Base de datos de usuarios:**
 
