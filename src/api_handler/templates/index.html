@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Gastos</title>
+  </head>
+  <body>
+    <h1>Gestor de Gastos</h1>
+    <form id="gasto-form">
+      <label for="nombre">Nombre del Gasto:</label>
+      <input type="text" id="nombre" name="nombre" /><br /><br />
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" name="cantidad" /><br /><br />
+      <button type="submit">Agregar Gasto</button>
+    </form>
+    <h2>Historial de Gastos:</h2>
+    <ul id="gastos-list"></ul>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const gastoForm = document.getElementById("gasto-form");
+        const gastosList = document.getElementById("gastos-list");
+
+        // Obtener lista de gastos al cargar la página
+        fetch("/gastos")
+          .then((response) => response.json())
+          .then((gastos) => {
+            gastos.forEach((gasto) => {
+              const li = document.createElement("li");
+              li.textContent = `Nombre: ${gasto.nombre}, Cantidad: ${gasto.cantidad}`;
+              gastosList.appendChild(li);
+            });
+          });
+
+        // Manejar el envío del formulario de gasto
+        gastoForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const nombre = document.getElementById("nombre").value;
+          const cantidad = document.getElementById("cantidad").value;
+
+          fetch("/gastos", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ nombre, cantidad }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              alert(data.message);
+              // Limpiar el formulario después de agregar el gasto
+              gastoForm.reset();
+              // Recargar la lista de gastos
+              gastosList.innerHTML = "";
+              fetch("/gastos")
+                .then((response) => response.json())
+                .then((gastos) => {
+                  gastos.forEach((gasto) => {
+                    const li = document.createElement("li");
+                    li.textContent = `Nombre: ${gasto.nombre}, Cantidad: ${gasto.cantidad}`;
+                    gastosList.appendChild(li);
+                  });
+                });
+            })
+            .catch((error) => console.error("Error al agregar gasto:", error));
+        });
+      });
+    </script>
+  </body>
+</html>

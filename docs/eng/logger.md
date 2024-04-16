@@ -7,19 +7,21 @@ This file defines two classes, `__Logger` and `__LoggerSpecials`, which are used
 - **\_\_Logger**
   - Responsible for creating and configuring a file handler for the logger.
   - Also initializes a logger with a specified log file and provides methods to log messages at different levels (debug, info, warning, error, and critical), including:
-    - Logs a debug message (`debug(self, message: str)`)
-    - Logs an info message (`info(self, message: str) -> None`)
-    - Logs a warning message (`warning(self, message: str) -> None`)
-    - Logs an error message (`error(self, message: str) -> None`)
-    - Logs a critical message (`critical(self, message: str) -> None`)
+    - Logs a debug message (`debug(self, message: str)`).
+    - Logs an info message (`info(self, message: str) -> None`).
+    - Logs a warning message (`warning(self, message: str) -> None`).
+    - Logs an error message (`error(self, message: str) -> None`).
+    - Logs a critical message (`critical(self, message: str) -> None`).
 - **\_\_LoggerSpecials**
   - This class provides methods to log specific messages, including:
-    - Unexpected errors with relevant information (`unexpected_error`)
-    - Errors related to absolute paths or files (`cannot_handle_absolute`)
-    - Information about setting variable types (`type_set_to`)
-    - Adding values to data structures (`adding_value_to`)
-    - Function calls (`was_called`)
-    - Setting variable values (`value_was_set`)
+    - Unexpected errors with relevant information (`unexpected_error`).
+    - Errors related to absolute paths or files (`cannot_handle_absolute`).
+    - Information about setting variable types (`type_set_to`).
+    - Adding values to data structures (`adding_value_to`).
+    - Function calls (`was_called`).
+    - Setting variable values (`value_was_set`).
+    - Logging the name and type of a value returned from a callable function (`value_retured`).
+    - Logging debug messages for each value returned within a sequence of values, optionally indicating an initial callable function or string (`values_returned`).
 
 **Global Variables:**
 
@@ -29,6 +31,8 @@ This file defines two classes, `__Logger` and `__LoggerSpecials`, which are used
 **Example Usage:**
 
 ```python
+from src.logger import *
+
 # Log an info message
 logger.info("This is an informational message.")
 
