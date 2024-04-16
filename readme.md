@@ -54,7 +54,7 @@ python3 main.py
 
 ### Documentación
 
-Para más información sobre el proyecto, consulta la documentación [aquí](docs/intro.md).
+Para más información sobre el proyecto, consulta la documentación [aquí](docs/readme.md).
 
 ### Contribución
 
