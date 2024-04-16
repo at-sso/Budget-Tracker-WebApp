@@ -1,0 +1,67 @@
+{
+  "editor.autoIndent": "advanced",
+  "editor.guides.indentation": true,
+  "editor.tabSize": 4,
+  "mypy.configFile": "./env/mypy.ini",
+  "python.analysis.typeCheckingMode": "strict",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportUnknownMemberType": "information",
+    "reportMissingTypeStubs": "information",
+    "reportReturnType": "information",
+    "reportUnusedExcept": "information",
+    "reportUnknownVariableType": "information",
+    "reportUnusedClass": "information",
+    "reportSelfClsParameterName": "warning",
+    "reportUndefinedVariable": "warning",
+    "reportUnusedImport": "warning",
+    "reportUnknownArgumentType": "warning",
+    "reportUnknownLambdaType": "warning",
+    "reportUnusedFunction": "warning",
+    "reportUnusedVariable": "warning",
+    "reportUnusedExpression": "warning",
+    "reportPossiblyUnboundVariable": "warning",
+    "reportInvalidTypeVarUse": "error",
+    "reportUnboundVariable": "error",
+    "reportIncompatibleVariableOverride": "error",
+    "reportUnknownParameterType": "error",
+    "reportPropertyTypeMismatch": "error",
+    "reportDuplicateImport": "error",
+    "reportUninitializedInstanceVariable": "error",
+  },
+  "python.analysis.ignore": [
+    "**/tests/**"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.quickSuggestions": {
+      "strings": true,
+      "other": "on"
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.quickSuggestions": {
+      "strings": true,
+      "comments": "on",
+      "other": "on"
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "[html]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.suggest.insertMode": "replace"
+  },
+  "files.associations": {
+    "*.json5": "jsonc",
+    "*.ini": "ini",
+    "*.log": "log"
+  },
+}
