@@ -14,12 +14,14 @@ Este archivo define dos clases, `__Logger` y `__LoggerSpecials`, que se utilizan
     - Registra un mensaje crítico (`critical(self, message: str) -> None`).
 - **\_\_LoggerSpecials**
   - Esta clase proporciona métodos para registrar mensajes específicos, incluyendo:
-    - Errores inesperados con información relevante (`unexpected_error`)
-    - Errores relacionados con rutas absolutas o archivos (`cannot_handle_absolute`)
-    - Información sobre cómo establecer tipos de variables (`type_set_to`)
-    - Agregar valores a estructuras de datos (`adding_value_to`)
-    - Llamadas a funciones (`was_called`)
-    - Establecer valores de variables (`value_was_set`)
+    - Errores inesperados con información relevante (`unexpected_error`).
+    - Errores relacionados con rutas absolutas o archivos (`cannot_handle_absolute`).
+    - Información sobre cómo establecer tipos de variables (`type_set_to`).
+    - Agregar valores a estructuras de datos (`adding_value_to`).
+    - Llamadas a funciones (`was_called`).
+    - Establecer valores de variables (`value_was_set`).
+    - Registrar el nombre y tipo de un valor devuelto por una función invocable (`value_returned`).
+    - Registrar mensajes de depuración para cada valor devuelto dentro de una secuencia de valores, indicando opcionalmente una función invocable inicial o una cadena (`values_returned`).
 
 **Variables Globales:**
 
@@ -29,6 +31,8 @@ Este archivo define dos clases, `__Logger` y `__LoggerSpecials`, que se utilizan
 **Ejemplo de Uso:**
 
 ```python
+from src.logger import *
+
 # Registrar un mensaje informativo
 logger.info("Este es un mensaje informativo.")
 

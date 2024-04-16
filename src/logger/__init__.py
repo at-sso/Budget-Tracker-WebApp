@@ -287,7 +287,7 @@ class __LoggerSpecials:
         self,
         value_name: str,
         value: Any = None,
-        callabe: Callable[..., Any] = object,
+        callable: Callable[..., Any] = object,
     ) -> None:
         """
         The function value_was_set logs a debug message indicating that a value has been set. It takes
@@ -304,8 +304,50 @@ class __LoggerSpecials:
             "debug",
             f"Value {value_name}, was set to {value}."
             + (f" Type: ({type(value).__name__})." if value != None else "")
-            + f" Initialization call: '{callabe.__name__}'.",
+            + f" Initialization call: '{callable.__name__}'.",
         )
+
+    def value_retured(
+        self, value_name: str, value: Any, callable: Callable[..., Any]
+    ) -> None:
+        """
+        The function `value_retured` logs a debug message indicating the name and type of a value returned
+        from a callable function.
+
+        @param value_name The `value_name` parameter in the `value_retured` method is a string that
+        represents the name of the returned value.
+        @param value The `value` parameter in the `value_retured` method is of an unspecified type and
+        represents the value returned from a callable function.
+        @param callable The `callable` parameter in the `value_retured` method is a callable function
+        that returned the `value`.
+        """
+        self.__handle_logger_message(
+            "debug",
+            f"Value '{value_name}' ({type(value).__name__}) in {callable.__name__}, returned: {value}",
+        )
+
+    def values_returned(self, *values: Any, init: Callable[..., Any] | str) -> None:
+        """
+        The function `values_returned` logs debug messages for each value returned within a sequence of
+        values, optionally indicating an initial callable function or string.
+
+        @param values The `values` parameter in the `values_returned` method represents a sequence of
+        values returned from one or more callable functions.
+        @param init The `init` parameter in the `values_returned` method is either a callable function
+        or a string. If `init` is a string, it represents an initial value; otherwise, it represents
+        the name of the initial callable function.
+
+        @return None
+        """
+        val: Any = None
+        if isinstance(init, str):
+            val = init
+        else:
+            val = init.__name__  # type: ignore
+        for value in values:
+            self.__handle_logger_message(
+                "debug", f"Locales within {val} returned: {value}"
+            )
 
 
 logger_specials = __LoggerSpecials()
