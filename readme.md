@@ -1,7 +1,3 @@
-### Descripción del proyecto
-
-Este repositorio contiene el código fuente para un proyecto de software.
-
 ### Requisitos previos
 
 Para ejecutar este proyecto, necesitarás lo siguiente:
