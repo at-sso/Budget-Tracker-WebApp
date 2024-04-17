@@ -343,7 +343,7 @@ class __LoggerSpecials:
         if isinstance(init, str):
             val = init
         else:
-            val = init.__name__  # type: ignore
+            val = init.__name__
         for value in values:
             self.__handle_logger_message(
                 "debug", f"Locales within {val} returned: {value}"

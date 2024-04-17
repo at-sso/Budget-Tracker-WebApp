@@ -14,8 +14,8 @@ from typing import List, Any
 from src.logger import *
 
 MongoDBType = MongoClient[Any]
-DatabaseType = database.Database[Any]
-CollectionType = collection.Collection[Any]
+DatabaseType = database.Database[Any]  # type: ignore[misc]
+CollectionType = collection.Collection[Any]  # type: ignore[misc]
 CursorType = cursor.Cursor[Any]
 
 WEBAPP = Flask(__name__)
