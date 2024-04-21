@@ -1,9 +1,9 @@
 from icecream import install
-from src import main
-from src.logger import logger
-import src.timer as timer
+from src import app
+from src.backend.logger import logger
+import src.backend.timer as timer
 
 
 if __name__ == "__main__":
     install()
-    logger.debug(f"{ main } returned code: { timer.timer(main) }")
+    logger.debug(f"{ app } returned code: { timer.timer(app.run, debug=True) }")

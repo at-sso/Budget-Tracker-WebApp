@@ -55,13 +55,20 @@
     "editor.suggest.insertMode": "replace"
   },
   "[html]": {
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
     "editor.suggest.insertMode": "replace"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.maxTokenizationLineLength": 2500
   },
   "files.associations": {
     "*.json5": "jsonc",
     "*.ini": "ini",
-    "*.log": "log"
+    "*.log": "log",
+    "*.html": "html",
+    "*.js": "javascript"
   },
 }
