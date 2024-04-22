@@ -4,5 +4,5 @@ This document provides an overview of the functionalities within the source code
 
 **Documentation Languages:**
 
-- **English:** See the full documentation in English [here](./eng/_index.md).
-- **Spanish:** See the full documentation in Spanish [aquí](./esp/_index.md).
+- **English:** See the full documentation in English [here](./eng/index.md).
+- **Spanish:** See the full documentation in Spanish [aquí](./esp/index.md).
