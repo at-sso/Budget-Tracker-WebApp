@@ -1,43 +1,28 @@
 // Function to fetch expenses from server and populate the table
-function fetchExpenses() {
-  fetch("/expenses")
-    .then((response) => response.json())
-    .then((data) => {
-      const expenseTableBody = document.querySelector("#expenseTable tbody");
-      expenseTableBody.innerHTML = "";
-      data.forEach((expense) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-                            <td>${expense.nombre}</td>
-                            <td>${expense.monto}</td>
-                            <td>${expense.fecha}</td>
-                        `;
-        expenseTableBody.appendChild(row);
-      });
-    });
+function edit(expense_id) {
+  if(document.getElementsByClassName(expense_id)[1].getAttribute("type") == "hidden"){
+    document.getElementsByClassName(expense_id)[0].style.display="flex"
+    document.getElementsByClassName(expense_id)[1].setAttribute("type", "")
+    document.getElementsByClassName(expense_id)[2].setAttribute("type", "")
+    document.getElementsByClassName(expense_id)[3].style.display = 'block'
+    document.getElementsByClassName(expense_id)[4].style.display = 'none'
+    document.getElementsByName(expense_id)[0].style.display ="none"
+    document.getElementsByName(expense_id)[1].style.display ="none"
+    document.getElementsByName(expense_id)[2].style.display ="none"
+  }
+  else{
+     document.getElementsByClassName(expense_id)[0].style.display="none"
+     document.getElementsByClassName(expense_id)[1].setAttribute("type", "hidden")
+     document.getElementsByClassName(expense_id)[2].setAttribute("type", "hidden")
+        document.getElementsByClassName(expense_id)[3].style.display = 'none'
+    document.getElementsByClassName(expense_id)[4].style.display = 'flex'
+    
+    document.getElementsByName(expense_id)[0].style.display ="flex"
+    document.getElementsByName(expense_id)[1].style.display ="flex"
+    document.getElementsByName(expense_id)[2].style.display ="flex"
+  }
 }
 
 // Function to handle form submission for adding expenses
-document
-  .getElementById("expenseForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    const nombre = document.getElementById("nombre").value;
-    const monto = document.getElementById("monto").value;
-    fetch("/expenses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ nombre, monto }),
-    }).then((response) => {
-      if (response.ok) {
-        fetchExpenses(); // Fetch and update table if expense added successfully
-        document.getElementById("nombre").value = "";
-        document.getElementById("monto").value = "";
-      }
-    });
-  });
 
-// Fetch expenses when page loads
-fetchExpenses();
+
