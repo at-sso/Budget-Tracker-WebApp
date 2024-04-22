@@ -27,7 +27,7 @@ This is a simple web application built with Flask that allows users to add expen
 To run the application, execute the following command:
 
 ```bash
-python app.py
+python main.py
 ```
 
 The application will be accessible at `http://localhost:5000` in your web browser.
@@ -50,4 +50,4 @@ Contributions are welcome! If you find any bugs or have suggestions for improvem
 
 ## License
 
-This project is licensed under the [GNU General Public License v3.0 ](license).
+This project is licensed under the [GNU General Public License v3.0](license).
