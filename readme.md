@@ -1,65 +1,53 @@
-### Requisitos previos
+# Budget Tracker WebApp
 
-Para ejecutar este proyecto, necesitarás lo siguiente:
+This is a simple web application built with Flask that allows users to add expense entries.
 
-- **Python 3.12:** Descargar e instalar Python 3.12 desde [https://www.python.org/downloads/](https://www.python.org/downloads/).
-- **Librerías:** Instalar las librerías requeridas siguiendo las instrucciones de instalación en la sección ["Instalación"](#instalación).
+## Installation
 
-### Instalación
+1. Clone this repository to your local machine:
 
-1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/at-sso/Budget-Tracker-WebApp.git
+   ```
 
-```sh
-git clone https://github.com/at-sso/Budget-Tracker-WebApp.git
+2. Navigate to the project directory:
+
+   ```bash
+   cd Budget-Tracker-WebApp
+   ```
+
+3. Install the required dependencies:
+
+   ```bash
+   pip install -r ./env/requirements.txt
+   ```
+
+## Usage
+
+To run the application, execute the following command:
+
+```bash
+python main.py
 ```
 
-2. Instalar las librerías:
+The application will be accessible at `http://localhost:5000` in your web browser.
 
-**En Windows:**
+## Features
 
-```sh
-py -m pip install -r ./env/requirements.txt
-```
+- **Expense Form**: Users can add new expense entries through a web form.
+- **Validation**: The form validates that both the name and amount fields are filled out before submission.
+- **Simple Interface**: The interface is designed to be user-friendly and intuitive.
 
-**En Linux (Unix):**
+## Dependencies
 
-```sh
-python3 -m pip install -r ./env/requirements.txt
-```
+- Flask
+- Flask-WTF
+- WTForms
 
-**Nota:** Si el comando `pip` no funciona, es posible que necesites instalar la herramienta `pip`. Puedes encontrar instrucciones para hacerlo en [https://pip.pypa.io/en/stable/installation/](https://pip.pypa.io/en/stable/installation/).
+## Contributing
 
-### Estructura del proyecto
+Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
-- **./src/\_\_init\_\_.py:** Contiene el código principal del proyecto.
-- **./docs/intro.md:** Contiene la documentación del proyecto.
-- **./todo.md:** Describe el plan de implementación del proyecto.
-- **./env/requirements.txt:** Lista las librerías requeridas para el proyecto.
+## License
 
-### Ejecución del proyecto
-
-**Para ejecutar el proyecto, ejecuta el siguiente comando:**
-
-**En Windows:**
-
-```sh
-py main.py
-```
-
-**En Linux (Unix):**
-
-```sh
-python3 main.py
-```
-
-### Documentación
-
-Para más información sobre el proyecto, consulta la documentación [aquí](docs/readme.md).
-
-### Contribución
-
-Si estás interesado en contribuir al proyecto, consulta la guía de contribución [aquí](todo.md).
-
-### Licencia
-
-Este proyecto está licenciado bajo la licencia **[GPL-3.0 license](license)**.
+This project is licensed under the [GNU General Public License v3.0](license).
