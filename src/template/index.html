@@ -77,8 +77,12 @@
     <form method="POST">
       {{form.hidden_tag()}} {{form.nombre(placeholder = "Nombre")}}
       {{form.monto(placeholder = "Monto")}} {{form.submit}}
+      {{form.currency (type= "hidden", id="currentCurrency" , value = 1)}}
     </form>
-
+    <select name="" id="currencyChange">
+      <option value="usd">USD</option>
+      <option value="eur">EUR</option>
+    </select>
     <h2>Expenses</h2>
     <div>
       <div class="expenses-table">
@@ -89,10 +93,9 @@
           <span style="width: 160px"></span>
         </div>
         {% for gasto in gastos %}
-
         <div class="row flex body">
           <span name="{{gasto['_id']}}"> {{gasto["nombre"]}} </span>
-          <span name="{{gasto['_id']}}"> {{gasto["monto"]}} </span>
+          <span name="{{gasto['_id']}}" id="montoShow" value ='{{"%0.2f"| format(gasto["monto"]|float)}}' > {{"%0.2f"| format(gasto["monto"]|float)}}</span>
           <span name="{{gasto['_id']}}"> {{gasto["fecha"]}} </span>
           <form
             method="POST"
@@ -107,7 +110,7 @@
             </div>
             <div style="width: 33%">
               {{editForm.editMonto(class = gasto['_id'], type = 'hidden' ,
-              value=gasto['monto'])}}
+               value= (gasto['monto']|round(2, 'floor')))}}
             </div>
             <button
               onclick="edit('{{gasto._id}}')"
@@ -135,5 +138,6 @@
     </div>
 
     <script src="frontend/fetch_expenses.js"></script>
+    <script src="frontend/external_API/currency_api.js"></script>
   </body>
 </html>

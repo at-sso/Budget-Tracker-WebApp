@@ -6,4 +6,5 @@ from wtforms.validators import DataRequired
 class BasicForm(FlaskForm):
     nombre = StringField("nombre", validators=[DataRequired()])
     monto = FloatField("monto", validators=[DataRequired()])
+    currency = FloatField()
     submit = SubmitField("Add Expense")

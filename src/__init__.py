@@ -39,7 +39,6 @@ def index() -> Any:
     form = BasicForm()
     deleteForm = DeleteForm()
     editForm = EditForm()
-
     if form.validate_on_submit():
         nombre: str | Any = form.nombre.data
         monto: float | Any = form.monto.data
