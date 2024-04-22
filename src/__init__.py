@@ -43,10 +43,11 @@ def index() -> str:
         monto = form.monto.data
         registrar_gastos(nombre,monto) # type: ignore 
         return redirect(url_for('index'))
-    if deleteForm.validate_on_submit():
     if editForm.validate_on_submit():
         modificar_gasto(editForm.editExpenseId.data, editForm.editNombre.data, editForm.editMonto.data) # type: ignore[warning]
-        return ""
+        return redirect(url_for('index'))
+
+    if deleteForm.validate_on_submit():
         eliminar_gasto(deleteForm.id_expense.data) # type: ignore
         return redirect(url_for('index'))
     return render_template("index.html", gastos = mostrar_gastos(), form=form, deleteForm=deleteForm, editForm=editForm)
