@@ -14,6 +14,7 @@ __all__ = [
     "modificar_gasto",
 ]
 
+from bson import ObjectId
 from pymongo.database import Database
 from pymongo.collection import Collection
 from pymongo import MongoClient
@@ -59,14 +60,14 @@ def mostrar_gastos() -> List[JSONType]:
 
 def eliminar_gasto(id: str) -> None:
     """Eliminar un gasto."""
-    collection_gastos.delete_one({"_id": id})
+    ( collection_gastos.delete_one({"_id":ObjectId(id)}))
     logger.info(f"Gasto eliminado: {id}")
 
 
 def modificar_gasto(id: str, nombre: str, monto: float) -> None:
     """Modificar un gasto existente."""
     date: str = __get_date()
-    filtro: JSONType = {"_id": id}
+    filtro: JSONType = {"_id": ObjectId(id)}
     update_data: JSONType = {"$set": {"nombre": nombre, "monto": monto, "fecha": date}}
-    collection_gastos.update_one(filtro, update_data)
+    print(collection_gastos.update_one(filtro, update_data))
     logger.info(f"Gasto modificado: {id}")

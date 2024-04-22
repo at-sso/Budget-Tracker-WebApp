@@ -1,69 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-      }
-      h1 {
-        margin-bottom: 20px;
-      }
-      form {
-        margin-bottom: 20px;
-      }
-      input[type="text"],
-      input[type="number"] {
-        padding: 8px;
-        margin-right: 10px;
-      }
-      button {
-        padding: 8px 16px;
-        cursor: pointer;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background-color: #f2f2f2;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Expense Tracker</h1>
 
-    <h2>Add Expense</h2>
-    <form id="expenseForm">
-      <input type="text" id="nombre" placeholder="Nombre" />
-      <input type="number" id="monto" placeholder="Monto" />
-      <button type="submit">Add Expense</button>
-    </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <style>
+    .flex {
+      display: flex;
+    }
+  .btn{
+    padding: 5px;
+    cursor: pointer;
+    height: fit-content;
+    font-size: 14px;
+  }
+    .row {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      justify-content: space-between;
+    }
 
-    <h2>Expenses</h2>
-    <table id="expenseTable">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Monto</th>
-          <th>Fecha</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Expenses will be added here dynamically -->
-      </tbody>
-    </table>
+    .row:not(.header)>span {
+      border: 1px solid #ddd;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+    }
 
-    <script src="frontend/fetch_expenses.js"></script>
-  </body>
+    .row span {
+      width: 33%;
+
+    }
+
+    .header {
+
+      text-align: center;
+      background-color: #f2f2f2;
+      font-weight: 600;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 8px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+
+    .expenses-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Expense Tracker</h1>
+
+  <h2>Add Expense</h2>
+  <form  method="POST">
+    {{form.hidden_tag()}}
+    {{form.nombre(placeholder = "Nombre")}}
+    {{form.monto(placeholder = "Monto")}}
+    {{form.submit}}
+  </form>
+
+  <h2>Expenses</h2>
+  <div>
+    <div class="expenses-table">
+      <div class="row flex header">
+        <span>Nombre</span>
+        <span>Monto</span>
+        <span>Fecha</span>
+        <span style="width:160px"></span>
+      </div>
+      {% for gasto in gastos %}
+
+      <div class="row flex body">
+        <span name="{{gasto['_id']}}" >
+          {{gasto["nombre"]}}
+        </span>
+        <span name="{{gasto['_id']}}" >
+          {{gasto["monto"]}}
+        </span>
+        <span name="{{gasto['_id']}}" >
+          {{gasto["fecha"]}}
+        </span>
+        <form  method="POST" style="width:100%; display:none; margin:0" class="{{gasto['_id']}}">
+          {{editForm.hidden_tag()}}
+          {{editForm.editExpenseId (value = gasto['_id'], type="hidden")}}
+          <div style="width:33%">{{editForm.editNombre (class = gasto['_id'],   type = 'hidden', value=gasto['nombre'])}}</div>
+          <div style="width:33%">{{editForm.editMonto(class = gasto['_id'], type = 'hidden' , value=gasto['monto'])}}</div>
+          <button onclick="edit('{{gasto._id}}')" class="{{gasto['_id']}} btn" type="button">
+            cancelar
+          </button>
+          {{editForm.submit}}
+        </form>
+        <span style="display: flex; justify-content:space-around; width:160px" class="{{gasto['_id']}}">
+          <button onclick="edit('{{gasto._id}}')" class=" btn">
+            editar
+          </button>
+          
+          <form method="POST" style="margin:0">
+            {{deleteForm.hidden_tag()}}
+            {{deleteForm.id_expense (value = gasto['_id'], type="hidden")}}
+            {{deleteForm.submit (class='btn')}}
+
+          </form>
+        </span>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <script src="frontend/fetch_expenses.js"></script>
+</body>
+
 </html>
