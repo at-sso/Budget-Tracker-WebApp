@@ -1,4 +1,11 @@
-// Function to fetch expenses from server and populate the table
+/*
+ * The function `edit` is responsible for toggling the display of expense elements based on the provided `expense_id`.
+ * If the element is currently hidden, it will be displayed, and vice versa.
+ *
+ * @param expense_id The `expense_id` parameter represents the unique identifier of the expense element to be edited.
+ *
+ * This function does not return any value.
+ */
 function edit(expense_id) {
   if (
     document.getElementsByClassName(expense_id)[1].getAttribute("type") ==
@@ -28,5 +35,3 @@ function edit(expense_id) {
     document.getElementsByName(expense_id)[2].style.display = "flex";
   }
 }
-
-// Function to handle form submission for adding expenses
