@@ -60,7 +60,7 @@ def mostrar_gastos() -> List[JSONType]:
 
 def eliminar_gasto(id: str) -> None:
     """Eliminar un gasto."""
-    ( collection_gastos.delete_one({"_id":ObjectId(id)}))
+    (collection_gastos.delete_one({"_id": ObjectId(id)}))
     logger.info(f"Gasto eliminado: {id}")
 
 
@@ -69,5 +69,5 @@ def modificar_gasto(id: str, nombre: str, monto: float) -> None:
     date: str = __get_date()
     filtro: JSONType = {"_id": ObjectId(id)}
     update_data: JSONType = {"$set": {"nombre": nombre, "monto": monto, "fecha": date}}
-    print(collection_gastos.update_one(filtro, update_data))
+    logger.debug(collection_gastos.update_one(filtro, update_data))
     logger.info(f"Gasto modificado: {id}")

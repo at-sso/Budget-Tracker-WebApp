@@ -1,3 +1,12 @@
+"""
+This software is provided "as is" without warranty of any kind, express or implied, including but not 
+limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. 
+In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, 
+whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software 
+or the use or other dealings in the software.
+Copyright (c) 2024 zperk
+"""
+
 __all__ = ["logger", "logger_specials"]
 
 import logging as _logging
@@ -29,6 +38,7 @@ class __Logger:
         logger_directory: str = _os.path.dirname(self.__log_file)
         if not _os.path.exists(logger_directory):
             _os.makedirs(logger_directory)
+
         try:
             # Delete the oldest files.
             files: List[str] = _os.listdir(self.__log_path)
@@ -55,50 +65,50 @@ class __Logger:
         # Add the handler to the logger
         self.__logger.addHandler(logger_handler)
 
-    def debug(self, message: str):
+    def debug(self, message: Any) -> None:
         """
         The function `debug` logs a debug message using a logger message handler.
 
-        @param message The `message` parameter in the `debug` method is a string that represents the
+        @param message The `message` parameter in the `debug` method is an object that represents the
         message to be logged at the 'DEBUG' level.
         """
-        self.__logger.debug(message)
+        self.__logger.debug(str(message))
 
-    def info(self, message: str) -> None:
+    def info(self, message: Any) -> None:
         """
         This function logs an informational message using a logger message handler.
 
-        @param message The `message` parameter in the `info` method is a string that represents the
+        @param message The `message` parameter in the `info` method is an object that represents the
         message to be logged at the 'INFO' level.
         """
-        self.__logger.info(message)
+        self.__logger.info(str(message))
 
-    def warning(self, message: str) -> None:
+    def warning(self, message: Any) -> None:
         """
         The `warning` function logs a warning message using a logger message handler.
 
         @param message The `message` parameter in the `info` warning is a string that represents the
         message to be logged at the 'WARNING' level.
         """
-        self.__logger.warning(message)
+        self.__logger.warning(str(message))
 
-    def error(self, message: str) -> None:
+    def error(self, message: Any) -> None:
         """
         The function `error` logs an error message using a logger message handler.
 
-        @param message The `message` parameter in the `error` method is a string that represents the
+        @param message The `message` parameter in the `error` method is an object that represents the
         message to be logged at the 'ERROR' level.
         """
-        self.__logger.error(message)
+        self.__logger.error(str(message))
 
-    def critical(self, message: str) -> None:
+    def critical(self, message: Any) -> None:
         """
         This function logs a critical message using a logger message handler.
 
-        @param message The `message` parameter in the `critical` method is a string that represents the
+        @param message The `message` parameter in the `critical` method is an object that represents the
         message to be logged at the 'CRITICAL' level.
         """
-        self.__logger.critical(message)
+        self.__logger.critical(str(message))
 
 
 logger = __Logger()
@@ -121,7 +131,7 @@ class __LoggerSpecials:
             "crit": lambda arg: logger.critical(arg),
         }
 
-    def __handle_logger_message(self, key: str, message: str) -> None:
+    def __handle_logger_message(self, key: str, message: Any) -> None:
         """
         This function handles logging of error messages at different levels based on a specified key.
 
