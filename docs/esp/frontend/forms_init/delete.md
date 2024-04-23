@@ -19,4 +19,4 @@ Este código Python utiliza la extensión Flask-WTF y la librería WTForms para 
 
 En resumen, este código define una clase de formulario llamada DeleteForm, que contiene un StringField para ingresar el ID de la entrada de gasto a eliminar y un SubmitField para enviar el formulario. Este formulario puede ser utilizado en una aplicación Flask para eliminar entradas de gasto.
 
-[Regresar](../../index.md)
+[Ir atrás](../../index.md)

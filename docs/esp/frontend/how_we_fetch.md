@@ -14,4 +14,4 @@ En general, esta función proporciona un mecanismo para alternar la visibilidad 
 
 Recuerda asegurar un manejo adecuado de errores y validación al implementar funciones como esta en una aplicación del mundo real para evitar comportamientos inesperados o vulnerabilidades de seguridad.
 
-[Regresar](../index.md)
+[Ir atrás](../index.md)

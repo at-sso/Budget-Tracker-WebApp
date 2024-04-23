@@ -19,3 +19,5 @@
    - De lo contrario, registra el tiempo de ejecución y devuelve el resultado de la ejecución de la función.
 
 En general, este módulo proporciona una manera conveniente de medir el tiempo de ejecución de las funciones y manejar las excepciones que puedan ocurrir durante su ejecución.
+
+[Ir atrás](../index.md)
