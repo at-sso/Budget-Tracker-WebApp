@@ -20,4 +20,4 @@ Aquí tienes cómo funciona:
 
 Este formulario puede integrarse en una aplicación Flask para permitir a los usuarios editar entradas de gastos, asegurando que los datos ingresados cumplan ciertos criterios de validación.
 
-[Regresar](../../index.md)
+[Ir atrás](../../index.md)

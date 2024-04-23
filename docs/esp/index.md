@@ -13,4 +13,3 @@
       - [Formulario de eliminación](./frontend/forms_init/delete.md)
       - [Formulario de edición](./frontend/forms_init/edit.md)
       - [Formulario de gasto](./frontend/forms_init/expense.md)
-

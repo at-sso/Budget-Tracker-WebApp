@@ -9,3 +9,5 @@
 5.Uso: Los usuarios pueden importar y utilizar las instancias de logger y logger_specials en sus scripts de Python para registrar mensajes y manejar escenarios específicos de registro.
 
 En general, este guion proporciona un mecanismo de registro flexible y completo para aplicaciones de Python, permitiendo a los desarrolladores registrar mensajes en diferentes niveles y manejar varios escenarios de registro de manera efectiva.
+
+[Ir atrás](../index.md)
